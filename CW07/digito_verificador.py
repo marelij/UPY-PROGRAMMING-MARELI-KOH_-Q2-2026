@@ -7,3 +7,6 @@ def calcular_digito_verificador(rol):
     for i, digito in enumerate(rol_invertido):
         multiplicador = secuencia[i % len(secuencia)]
         suma += int(digito) * multiplicador
+        modulo = suma % 11
+    resultado = 11 - modulo
+    return str(resultado)
