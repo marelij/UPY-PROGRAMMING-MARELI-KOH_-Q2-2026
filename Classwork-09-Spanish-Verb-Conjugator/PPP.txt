@@ -1,0 +1,35 @@
+# Spanish Verb Conjugator
+
+# INPUT
+DISPLAY "Enter a verb: "
+GET user_verb
+
+# PROCESS
+
+# Store the six subject pronouns in order
+SET pronouns <- ["I", "you", "he/she", "we", "you all", "they"]
+
+# Store the endings for each verb type in a dictionary
+# each key (ar, er, ir) maps to a list of 6 endings matching the pronouns order
+SET endings_by_type <- {
+    "ar" : ["o", "as", "a", "amos", "ais", "an"],
+    "er" : ["o", "es", "e", "emos", "eis", "en"],
+    "ir" : ["o", "es", "e", "imos", "is", "en"]
+}
+
+# Remove the last 2 characters of user_verb to get the stem
+SET verb_stem <- user_verb without its last 2 characters
+
+# Grab the last 2 characters of user_verb to identify the verb type
+SET verb_type <- last 2 characters of user_verb
+
+# Use verb_type as a key to retrieve the correct endings list from the dictionary
+SET correct_endings <- endings_by_type at key verb_type
+
+# OUTPUT
+
+# Loop through each pronoun using its index position
+FOR each index, pronoun in pronouns DO
+    SET ending <- correct_endings at position index
+    DISPLAY pronoun + " " + verb_stem + ending
+END FOR
