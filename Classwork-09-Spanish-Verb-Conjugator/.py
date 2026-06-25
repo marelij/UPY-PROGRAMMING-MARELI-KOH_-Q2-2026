@@ -19,3 +19,9 @@ verb_type = user_verb[-2:]
 
 # Use the verb type as a key to retrieve the correct endings list
 correct_endings = endings_by_type[verb_type]
+# OUTPUT SECTION
+# Loop through each pronoun and its corresponding ending,
+# then print the fully conjugated form
+for index, pronoun in enumerate(pronouns):
+    ending = correct_endings[index]
+    print(f"{pronoun} {verb_stem}{ending}")
