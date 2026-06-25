@@ -1,27 +1,27 @@
-## CW08 - Numerical Integration
+# Classwork 09 - Spanish Verb Conjugator
 
-Python program that calculates numerical integration using four methods:
+Python program that takes a Spanish infinitive verb and conjugates it in present tense for the six subject pronouns according to its verb type (AR, ER, IR):
 
-- Left Riemann Method (LRM)
-- Right Riemann Method (RRM)
-- Midpoint Riemann Method (MRM)
-- Trapezoidal Rule (TRAP)
+## Pronouns
+- Yo 
+- Tú 
+- Él/Ella 
+- Nosotros 
+- Vosotros 
+- Ellos 
 
-### How to Run
-
-1. Ensure you have Python installed on your system.
-2. Clone this repository or download the source file:
-
+## How to Run
+Ensure you have Python installed on your system.
+Clone this repository or download the source file:
 git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 
-3. Navigate to the project directory and execute the script:
-
-python numerical_integration.py
+Navigate to the project directory and execute the script:
+python spanish_verb_conjugator.py
 
 ## Environment & Tools
-- Language: Python 3.x
-- Version Control: Git
-- Hosting Platform: GitHub
+Language: Python 3.x
+Version Control: Git
+Hosting Platform: GitHub
 
 ## AI Use Declaration
-AI was used to guide the implementation of the verification digit algorithm and to create readme during the development of this assignment.
+AI was used to help structure the pseudocode, generate the flowchart, and create this README during the development of this assignment.
