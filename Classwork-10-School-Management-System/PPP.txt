@@ -1,0 +1,238 @@
+
+# START PROGRAM - MAIN SYSTEM LOOP
+# This loop keeps the system running until the user exits
+
+WHILE TRUE DO
+
+
+    #  LOGIN SECTION 
+    # ask for username and password until correct login
+
+    logged ← FALSE
+
+    WHILE logged = FALSE DO
+
+        # Ask user for username
+        WRITE "USER:"
+        READ username
+
+        # If user wants to exit immediately
+        IF username = "exit" THEN
+            TERMINATE PROGRAM
+        END IF
+
+        # Ask for password
+        WRITE "PASSWORD:"
+        READ password
+
+        # Exit option
+        IF password = "exit" THEN
+            TERMINATE PROGRAM
+        END IF
+
+        # Check if user exists in system
+        IF GET username IN USERS THEN
+
+            # Check password correctness
+            IF USERS[username].password = password THEN
+                logged ← TRUE
+
+                # Successful login message
+                WRITE "WELCOME ", GET USERS[username].name
+                WRITE "ROLE: ", GET USERS[username].rol
+
+            ELSE
+                WRITE "INCORRECT PASSWORD"
+            END IF
+
+        ELSE
+            WRITE "USER NOT FOUND"
+        END IF
+
+    END WHILE
+
+
+    #  ROLE IDENTIFICATION -
+    # get the role of the logged user
+
+    role ← GET USERS[username].rol
+
+
+    # STUDENT MODULE
+    IF role = "student" THEN
+
+        # Show student academic report
+        WRITE "SCHOOL REPORT"
+        WRITE "STUDENT: ", GET USERS[username].name
+
+        approved ← SET()
+
+        # Loop through all subjects
+        FOR EACH subject IN SUBJECTS DO
+
+            # Show grade for each subject
+            WRITE subject, GET NOTES[username][subject]
+
+            # Check if subject is approved
+            IF GET NOTES[username][subject] >= 8 THEN
+                ADD subject TO approved
+            END IF
+
+        END FOR
+
+        # Calculate pending subjects
+        pending ← DIFFERENCE(SUBJECTS, approved)
+
+        WRITE approved
+        WRITE pending
+
+        # Ask user what to do next
+        READ option
+
+        IF option = "exit" THEN
+            TERMINATE PROGRAM
+        ELSE
+            CONTINUE SYSTEM LOOP
+        END IF
+
+    END IF
+
+
+    #  PROFESSOR MODULE 
+    IF role = "professor" THEN
+
+        # Show list of students
+        WRITE "STUDENTS"
+
+        FOR EACH user IN USERS DO
+            IF GET USERS[user].rol = "student" THEN
+                WRITE user, GET USERS[user].name
+            END IF
+        END FOR
+
+        # Select student to modify
+        READ student
+
+        IF student = "exit" THEN TERMINATE PROGRAM
+
+        # Validate student exists
+        WHILE student NOT IN NOTES DO
+            WRITE "STUDENT NOT FOUND"
+            READ student
+
+            IF student = "exit" THEN TERMINATE PROGRAM
+        END WHILE
+
+
+        # Show subjects
+        WRITE "SUBJECTS"
+
+        FOR EACH subject IN SUBJECTS DO
+            WRITE subject
+        END FOR
+
+        # Select subject
+        READ subject
+
+        IF subject = "exit" THEN TERMINATE PROGRAM
+
+        # Validate subject
+        WHILE subject NOT IN SUBJECTS DO
+            WRITE "INVALID SUBJECT"
+            READ subject
+
+            IF subject = "exit" THEN TERMINATE PROGRAM
+        END WHILE
+
+
+        #  GRADE UPDATE LOOP 
+        # Keep asking until professor confirms
+
+        confirm ← "no"
+
+        WHILE confirm ≠ "yes" DO
+
+            # Input new grade
+            READ grade
+
+            IF grade = "exit" THEN TERMINATE PROGRAM
+
+            # Validate grade range
+            WHILE grade < 0 OR grade > 10 DO
+                WRITE "INVALID GRADE"
+                READ grade
+
+                IF grade = "exit" THEN TERMINATE PROGRAM
+            END WHILE
+
+            # Show old vs new grade
+            old ← GET NOTES[student][subject]
+            WRITE subject, old, grade
+
+            # Ask confirmation
+            READ confirm
+
+            IF confirm = "exit" THEN TERMINATE PROGRAM
+
+            IF confirm = "yes" THEN
+                NOTES[student][subject] ← grade
+                WRITE "UPDATED SUCCESSFULLY"
+            ELSE
+                WRITE "UPDATE CANCELLED"
+            END IF
+
+        END WHILE
+
+    END IF
+
+
+    # COORDINATOR MODULE 
+    IF role = "coordinator" THEN
+
+        # Show coordinator dashboard
+
+        WRITE "COORDINATOR MENU"
+
+        # Show teachers list
+        WRITE "TEACHERS"
+        FOR EACH user IN USERS DO
+            IF USERS[user].rol = "professor" THEN
+                WRITE user, GET USERS[user].name
+            END IF
+        END FOR
+
+        # Show subjects list
+        WRITE "SUBJECTS"
+        FOR EACH subject IN SUBJECTS DO
+            WRITE subject
+        END FOR
+
+        # Show all students grades
+        WRITE "STUDENTS GRADES"
+
+        FOR EACH student IN NOTES DO
+
+            WRITE GET USERS[student].name
+
+            FOR EACH subject IN SUBJECTS DO
+                WRITE subject, GET NOTES[student][subject]
+            END FOR
+
+        END FOR
+
+        # Exit or continue option
+        READ option
+
+        IF option = "exit" THEN
+            TERMINATE PROGRAM
+        ELSE
+            CONTINUE SYSTEM LOOP
+        END IF
+
+    END IF
+
+
+END WHILE
+
+
+# END PROGRAM
