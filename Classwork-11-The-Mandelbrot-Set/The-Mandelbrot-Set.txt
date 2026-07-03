@@ -1,0 +1,46 @@
+#INICIO
+
+#INPUT
+Get archivo "config.txt"
+
+#PROCESO
+Para cada linea EN archivo
+    Separar linea EN clave, valor usando "="
+    Guardar clave Y valor(float) EN config
+FinPara
+Cerrar archivo
+
+#PROCESO - convertir a enteros
+Get ancho, alto, max_iter DESDE config (convertidos a entero)
+
+#OUTPUT
+Crear archivo "clase.csv" para escritura
+Display "fila, columna, iteraciones" EN clase.csv
+
+#PROCESO
+Para fila DESDE 0 HASTA alto-1
+    Para columna DESDE 0 HASTA ancho-1
+        
+        Calcular real = real_min + (columna/ancho) * (real_max - real_min)
+        Calcular imag = imag_min + (fila/alto) * (imag_max - imag_min)
+        Set c = numero complejo(real, imag)
+        
+        Set z = 0 + 0i
+        Set iteraciones = 0
+        
+        Mientras (|z| <= 2) Y (iteraciones < max_iter)
+            Calcular z = z*z + c
+            Incrementar iteraciones
+        FinMientras
+        
+        #OUTPUT
+        Display fila, columna, iteraciones EN clase.csv
+        
+    FinPara
+FinPara
+
+#OUTPUT
+Cerrar archivo clase.csv
+Display "DONE"
+
+#FIN
