@@ -1,35 +1,56 @@
-## Classwork #11 - The Mandelbrot Set
+# Classwork #12 - The Mandelbrot Set
+
 ## Description
 
-Python program that explores the Mandelbrot Set using mathematical calculations and different execution modes. The program is currently under development, and this repository contains a progress version of the assignment. Additional improvements and testing will be completed before the final submission.
+Python program that generates a visualization of the Mandelbrot Set by reading iteration data from external files and creating an image. The program loads configuration values, processes iteration results from a CSV file, assigns colors based on the number of iterations, and saves the final visualization as a PNG image.
 
-## Current Features
-Calculates Mandelbrot Set iterations.
-Uses mathematical formulas to determine divergence.
-Includes multiple execution modes (work in progress).
-Displays intermediate results for testing and validation.
-Program structure follows the required INPUT, PROCESS, and OUTPUT sections.
-Project Status
+## Features
 
-## This project is not finished yet.
-This repository contains an advance/progress version of the assignment. The pseudocode, flowchart, and Python program are still being reviewed and completed according to the assignment requirements.
+* Reads configuration values from a text file.
+* Loads Mandelbrot iteration data from a CSV file.
+* Creates an image using the Pillow (PIL) library.
+* Colors each pixel according to its iteration count.
+* Converts the generated image to RGB format.
+* Saves the final Mandelbrot visualization as a PNG file.
+* Program structure follows the required **INPUT**, **PROCESS**, and **OUTPUT** sections.
 
 ## How to Run
 
-Ensure you have Python 3 installed on your system.
+Make sure you have **Python 3** installed.
+
+Install the required library:
+
+
+pip install pillow
+
 
 Clone this repository or download the source code:
 
+
 git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
-cd Classwork-11-The-Mandelbrot-Set
-python mandelbrot_set_math.py
+
+
+Go to the project folder:
+
+
+cd Classwork-12-The-Mandelbrot-Set
+
+
+Run the program:
+
+
+python mandelbrot_set_vis.py
+
+
 ## Environment & Tools
-Language: Python 3.x
-Pseudocode: Plain English PPP format
-Flowchart: PSeInt / Flowchart tool
-GUI: Python graphical interface (work in progress)
-Version Control: Git
-Hosting Platform: GitHub
+
+* **Language:** Python 3.x
+* **Library:** Pillow (PIL)
+* **Pseudocode:** Plain English PPP format
+* **Flowchart:** Flowchart tool
+* **Version Control:** Git
+* **Hosting Platform:** GitHub
+
 ## AI Use Declaration
 
-AI was used to help generate the flowchart, assist with the GUI design, support the development of the pseudocode (PPP format), help organize the Python program structure, and assist in writing this README. All generated content was reviewed and modified to meet the assignment requirements.
+AI was used to assist in creating the flowchart, developing the pseudocode in the required PPP format, and writing this README. The flowchart was generated with AI assistance, and AI also provided guidance for organizing and improving the pseudocode. All generated content was reviewed, verified, and modified to ensure it met the assignment requirements.
