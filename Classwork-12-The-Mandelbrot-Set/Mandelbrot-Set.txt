@@ -1,0 +1,54 @@
+#START
+
+#INPUT
+Get file "config.txt"
+
+#PROCESS
+For each line IN file
+    Split line INTO key, value using "="
+    If "." IN value Then
+        Save key AND value(float) IN config
+    Else
+        Save key AND value(int) IN config
+    EndIf
+EndFor
+Close file
+
+#INPUT - reading fractal data
+Get file "clase.csv" for reading
+Read all lines INTO datos
+Close file clase.csv
+
+#PROCESS - extract configuration variables
+Get alto, ancho, max_iter FROM config
+
+#PROCESS - initialize empty image
+Set img = New Image type "HSV" with size (ancho, alto)
+
+#PROCESS - remove header row
+Set encabezados = Remove first element from datos
+
+#PROCESS - pixel rendering
+For each dato IN datos
+    Split dato INTO fila, columna, iteraciones using "," (converted to integer)
+    
+    # Condition to evaluate color brightness
+    If iteraciones == max_iter Then
+        Set brillo = 0
+    Else
+        Calculate brillo = integer of ((iteraciones / max_iter) * 255)
+    EndIf
+    
+    # Assign color to pixel (columna is X, fila is Y)
+    Set color_hsv = (brillo, 255, 255)
+    Draw pixel in img AT position (columna, fila) WITH color_hsv
+EndFor
+
+#PROCESS - final conversion
+Set img_rgb = Convert img to "RGB"
+
+#OUTPUT
+Save img_rgb IN "mandelbrot-clase.png"
+Display "DONE"
+
+#END
