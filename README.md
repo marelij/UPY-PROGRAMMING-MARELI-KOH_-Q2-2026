@@ -1,28 +1,23 @@
-# Classwork #12 - The Mandelbrot Set
+# Classwork #13 - Error Handling
 
 ## Description
+Three Python programs (Classwork #07, #08, and #09) rebuilt to apply proper error handling. Each program validates user input in a loop, raises and catches specific exceptions (including custom ones), uses try/except/else/finally blocks, and logs warnings/errors to a .log file instead of letting the program crash.
 
-Python program that generates a visualization of the Mandelbrot Set by reading iteration data from external files and creating an image. The program loads configuration values, processes iteration results from a CSV file, assigns colors based on the number of iterations, and saves the final visualization as a PNG image.
+## Programs
+
+- *verifier_digit.py* (Classwork #07 – Verifier Digit): Calculates the verification digit of a UTFSM roll number, validating the roll format and catching mismatches with a custom DigitoVerificadorError.
+- *numerical_integration.py* (Classwork #08 – Numerical Integration): Approximates the integral of a function chosen from a fixed list, using Default/Custom/Auto-adjust modes, and compares the result against the exact value (absolute and relative error).
+- *spanish_verb_conjugator.py* (Classwork #09 – Spanish Verb Conjugator): Conjugates a regular Spanish verb (-ar/-er/-ir) in present tense for all six pronouns, validating the verb before processing it.
 
 ## Features
-
-* Reads configuration values from a text file.
-* Loads Mandelbrot iteration data from a CSV file.
-* Creates an image using the Pillow (PIL) library.
-* Colors each pixel according to its iteration count.
-* Converts the generated image to RGB format.
-* Saves the final Mandelbrot visualization as a PNG file.
-* Program structure follows the required **INPUT**, **PROCESS**, and **OUTPUT** sections.
+- Input validation loops that keep asking until the data is valid.
+- Custom exceptions (DigitoVerificadorError, OpcionInvalidaError, IntervaloInvalidoError, TerminacionInvalidaError) that store extra details about the error.
+- try/except/else/finally structure: else runs only when no error occurred, finally runs regardless.
+- logging module writes warnings and errors (with timestamp and severity level) to a .log file.
+- Program structure follows the required INPUT, PROCESS, and OUTPUT sections.
 
 ## How to Run
-
-Make sure you have **Python 3** installed.
-
-Install the required library:
-
-
-pip install pillow
-
+Make sure you have Python 3 installed.
 
 Clone this repository or download the source code:
 
@@ -33,24 +28,22 @@ git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 Go to the project folder:
 
 
-cd Classwork-12-The-Mandelbrot-Set
+cd Classwork-13-Error-Handling
 
 
-Run the program:
+Run any of the three programs:
 
 
-python mandelbrot_set_vis.py
+CW07.py      # Classwork #07
+CW08.py # Classwork #08
+CW09.py # Classwork #09
 
 
 ## Environment & Tools
-
-* **Language:** Python 3.x
-* **Library:** Pillow (PIL)
-* **Pseudocode:** Plain English PPP format
-* **Flowchart:** Flowchart tool
-* **Version Control:** Git
-* **Hosting Platform:** GitHub
+- Language: Python 3.x
+- Standard library only (logging, math)
+- Version Control: Git
+- Hosting Platform: GitHub
 
 ## AI Use Declaration
-
-AI was used to assist in creating the flowchart, developing the pseudocode in the required PPP format, and writing this README. The flowchart was generated with AI assistance, and AI also provided guidance for organizing and improving the pseudocode. All generated content was reviewed, verified, and modified to ensure it met the assignment requirements.
+AI (Claude) was used to write the code for the three programs, applying try/except/else/finally, custom exceptions, and logging as covered in class, and to write this README. All generated content was reviewed and tested to ensure it met the assignment requirements
