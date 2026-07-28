@@ -1,67 +1,86 @@
-# Classwork – Bubble Sort Animation
+## Classwork #16 – Recursive Functions
 
 ## Description
-This project implements the *Bubble Sort* algorithm in Python with a graphical animation using the *stddraw* library. The program generates a random list of numbers, displays them as vertical bars, and animates the sorting process by highlighting and swapping elements until the list is completely sorted.
+
+This project implements several recursive functions in Python based on the recursive programming tutorial. Each function includes proper error handling to prevent the program from crashing when invalid input is provided. The project also includes the corresponding pseudocode (PPP) and flowchart describing the recursive logic.
 
 ## Program
 
-*Bubble.py*
-- Generates a random list of integers.
-- Displays the list as animated bars.
-- Uses the Bubble Sort algorithm to sort the values.
-- Highlights the elements being compared and swapped.
-- Shows the final sorted list.
+**recursive_functions.py**
+
+* Implements recursive functions using Python.
+* Validates user input with error handling.
+* Prevents crashes caused by invalid data types or negative values.
+* Demonstrates different recursive algorithms.
+* Includes JSON flattening using recursion.
+
+## Functions Included
+
+* **recursiva()** – Basic recursive function.
+* **fibonacci()** – Calculates the Fibonacci sequence recursively.
+* **factorial()** – Calculates the factorial of a number recursively.
+* **multiplicacion_recursiva()** – Performs multiplication using recursive addition.
+* **division_entera_recursiva()** – Performs integer division recursively.
+* **potencia_recursiva()** – Calculates the power of a number recursively.
+* **serie_collatz()** – Generates the Collatz sequence recursively.
+* **aplanar_json()** – Flattens nested JSON structures recursively.
 
 ## Features
 
-- Random number generation for testing.
-- Bubble Sort implementation.
-- Animated visualization using stddraw.
-- Color highlighting for comparisons and swaps.
-- Clean and easy-to-understand code.
+* Recursive implementation of multiple algorithms.
+* Input validation and exception handling.
+* Error handling for invalid types and negative numbers.
+* Recursive processing of nested JSON data.
+* Clean and easy-to-understand code.
 
 ## How to Run
 
-Make sure you have *Python 3* installed.
+Make sure you have Python 3 installed.
 
 Clone this repository:
 
-bash
-git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 
+git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
+```
 
 Go to the project folder:
 
-bash
-cd UPY-PROGRAMMING-MARELI-KOH_-Q2-2026
+
+cd UPY-PROGRAMMING-MARELI-KOH_-Q2-2026/Classwork-16-Recursive-Functions
 
 
 Run the program:
 
-bash
-python Bubble.py
+
+python recursive_functions.py
 
 
 ## Requirements
 
-- Python 3.x
-- stddraw library
-- color.py module
+* Python 3.12
+* json module (included with Python)
 
 ## Environment and Tools
 
-- *Language:* Python 3.x
-- *Graphics Library:* stddraw
-- *Version Control:* Git
-- *Hosting Platform:* GitHub
-- *IDE:* Visual Studio Code
+* **Language:** Python 3.x
+* **Version Control:** Git
+* **Hosting Platform:** GitHub
+* **IDE:** Visual Studio Code
 
 ## Repository
 
-GitHub Repository:
+**GitHub Repository:**
 
 https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 
+## Project Files
+
+The folder **Classwork-16-Recursive-Functions** contains:
+
+* `recursive_functions.py`
+* `recursive_functions_ppp.txt`
+* `recursive_functions_flowchart.png`
+
 ## AI Use Statement
 
-AI (ChatGPT) was used to assist in generating the Bubble Sort implementation, the animation logic, the pseudocode, the flowchart, and this README file. All generated content was reviewed, tested, and verified before submission to ensure it meets the assignment requirements.
+AI (ChatGPT) was used to assist in generating the recursive functions implementation, error handling, the pseudocode (PPP), the flowchart, and this README file. All generated content was reviewed, tested, and verified before submission to ensure it meets the assignment requirements.
