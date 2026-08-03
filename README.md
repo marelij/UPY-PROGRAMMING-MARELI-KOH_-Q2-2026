@@ -1,37 +1,30 @@
-## Classwork #16 – Recursive Functions
+# Classwork #17 – Galaxy Voyage (Part 1)
 
 ## Description
 
-This project implements several recursive functions in Python based on the recursive programming tutorial. Each function includes proper error handling to prevent the program from crashing when invalid input is provided. The project also includes the corresponding pseudocode (PPP) and flowchart describing the recursive logic.
+This project contains the first stage of the **Galaxy Voyage** game. The program reads the configuration from a text file, creates a game window using Pygame, calculates the positions of vertical lines, and displays them on the screen. This activity focuses on the planning phase, perspective math, and the basic game structure that will be expanded in future classwork.
 
-## Program
+## Project
 
-**recursive_functions.py**
+**Galaxy Voyage**
 
-* Implements recursive functions using Python.
-* Validates user input with error handling.
-* Prevents crashes caused by invalid data types or negative values.
-* Demonstrates different recursive algorithms.
-* Includes JSON flattening using recursion.
-
-## Functions Included
-
-* **recursiva()** – Basic recursive function.
-* **fibonacci()** – Calculates the Fibonacci sequence recursively.
-* **factorial()** – Calculates the factorial of a number recursively.
-* **multiplicacion_recursiva()** – Performs multiplication using recursive addition.
-* **division_entera_recursiva()** – Performs integer division recursively.
-* **potencia_recursiva()** – Calculates the power of a number recursively.
-* **serie_collatz()** – Generates the Collatz sequence recursively.
-* **aplanar_json()** – Flattens nested JSON structures recursively.
+* Reads game settings from a configuration file.
+* Creates the game window using Pygame.
+* Calculates the position of vertical perspective lines.
+* Draws evenly spaced vertical lines on the screen.
+* Uses a PPP (Pseudocode Programming Process) document.
+* Includes a flowchart representing the program flow.
+* Provides a screenshot of the running program.
 
 ## Features
 
-* Recursive implementation of multiple algorithms.
-* Input validation and exception handling.
-* Error handling for invalid types and negative numbers.
-* Recursive processing of nested JSON data.
-* Clean and easy-to-understand code.
+* Configuration file support.
+* Perspective line calculations.
+* Dynamic vertical line drawing.
+* Pseudocode Programming Process (PPP).
+* Program flowchart.
+* Project screenshot.
+* Organized project structure following the assignment requirements.
 
 ## How to Run
 
@@ -39,30 +32,31 @@ Make sure you have Python 3 installed.
 
 Clone this repository:
 
-
+```bash
 git clone https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 ```
 
 Go to the project folder:
 
-
-cd UPY-PROGRAMMING-MARELI-KOH_-Q2-2026/Classwork-16-Recursive-Functions
-
+```bash
+cd UPY-PROGRAMMING-MARELI-KOH_-Q2-2026/Classwork-17-Galaxy-Voyage
+```
 
 Run the program:
 
-
-python recursive_functions.py
-
+```bash
+python galaxy_voyage.py
+```
 
 ## Requirements
 
 * Python 3.12
-* json module (included with Python)
+* Pygame
 
 ## Environment and Tools
 
 * **Language:** Python 3.x
+* **Library:** Pygame
 * **Version Control:** Git
 * **Hosting Platform:** GitHub
 * **IDE:** Visual Studio Code
@@ -75,12 +69,14 @@ https://github.com/marelij/UPY-PROGRAMMING-MARELI-KOH_-Q2-2026.git
 
 ## Project Files
 
-The folder **Classwork-16-Recursive-Functions** contains:
+The folder **Classwork-17-Galaxy-Voyage** contains:
 
-* `recursive_functions.py`
-* `recursive_functions_ppp.txt`
-* `recursive_functions_flowchart.png`
+* `galaxy_voyage.py`
+* `galaxy_voyage_ppp.txt`
+* `config.txt`
+* `game_states_flowchart.png`
+* `game_screenshot.png`
 
 ## AI Use Statement
 
-AI (ChatGPT) was used to assist in generating the recursive functions implementation, error handling, the pseudocode (PPP), the flowchart, and this README file. All generated content was reviewed, tested, and verified before submission to ensure it meets the assignment requirements.
+ChatGPT was used as a learning assistant to help create the README file, organize the project documentation, prepare the PPP, and design the flowchart based on the program logic. All generated content was reviewed, understood, and adapted before submission.

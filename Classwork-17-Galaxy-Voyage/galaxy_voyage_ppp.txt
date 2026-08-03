@@ -1,0 +1,74 @@
+GALAXY VOYAGE
+PPP (Pseudocode Programming Process)
+
+--------------------------------------------------
+INPUT
+--------------------------------------------------
+
+Read configuration values from config.txt
+
+- Window width
+- Window height
+- Background color
+- Line color
+- Number of vertical lines
+- Space between lines
+
+--------------------------------------------------
+PROCESS
+--------------------------------------------------
+
+Create an empty dictionary called config.
+
+Open config.txt.
+
+For every line inside the file:
+
+    Read parameter and value.
+
+    If value contains commas:
+        Convert it into a tuple of integers.
+
+    Else if value contains a decimal point:
+        Convert it into a float.
+
+    Else:
+        Convert it into an integer.
+
+Initialize pygame.
+
+Create the game window using width and height.
+
+Calculate the X position of every vertical line.
+
+Store all X positions inside a list.
+
+Set running = True.
+
+WHILE running is True
+
+    Check all pygame events.
+
+    IF the user closes the window THEN
+
+        running = False
+
+    END IF
+
+    Fill the screen with the background color.
+
+    Draw every vertical line using the calculated positions.
+
+    Update the display.
+
+END WHILE
+
+Close pygame.
+
+--------------------------------------------------
+OUTPUT
+--------------------------------------------------
+
+Display a game window showing evenly spaced vertical
+lines drawn over the selected background color until
+the user closes the application.
