@@ -9,7 +9,8 @@ with open('config.txt', 'r') as file:
             config[parameter] = float(value)
         else:
             config[parameter] = int(value)
-#config['vanishing_point'] = (config['width'] * 0.5, config['height'] * 0.25)
+ 
+vanishing_point = (config['width'] * 0.5, config['height'] * 0.25)
 def calculate_x_positions(surface, vertical_lines, space):
     x_positions  = []
     width        = surface.get_width()
@@ -32,6 +33,11 @@ def draw_vertical_lines(surface, x_positions, color, width=2):
     height = surface.get_height()
     for x in x_positions:
         pygame.draw.line(surface, color, (x, 0), (x, height), width)
+def draw_perspective_vertical_lines(surface, x_positions, vanishing_point, color, width=2):
+    height = surface.get_height()
+    for x in x_positions:
+        end_point = (x, height)
+        pygame.draw.line(surface, color, vanishing_point, end_point, width)
 def draw_horizontal_lines(surface, x_positions, y_positions, color, width=2):
     for y in y_positions:
         start_point = (x_positions[0], y)
@@ -59,7 +65,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     screen.fill(config['bg_color'])
-    draw_vertical_lines(screen, x_positions, config['line_color'])
-    draw_horizontal_lines(screen, x_positions, y_positions, config['line_color'])
+    #draw_vertical_lines(screen, x_positions, config['line_color'])
+    #draw_horizontal_lines(screen, x_positions, y_positions, config['line_color'])
+    draw_perspective_vertical_lines(screen, x_positions, vanishing_point, config['line_color'])
     pygame.display.flip()
 pygame.quit()
